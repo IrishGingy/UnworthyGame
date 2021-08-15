@@ -10,6 +10,17 @@ public class Note01 : MonoBehaviour
     public GameObject UINote;
     public GameObject ThePlayer;
     public GameObject NoteCam;
+    public GameObject note;
+    public Material[] materials;
+
+    bool readingNote;
+    Renderer rend;
+
+    private void Start()
+    {
+        rend = note.GetComponent<Renderer>();
+        rend.material = materials[0];
+    }
 
     // Update is called once per frame
     void Update()
@@ -17,44 +28,53 @@ public class Note01 : MonoBehaviour
         // Referencing other script's DistanceFromTarget variable.
         TheDistance = PlayerCasting.DistanceFromTarget;
 
-        if (NoteCam.activeSelf)
+        if (readingNote)
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
+                readingNote = false;
                 ThePlayer.SetActive(true);
                 NoteCam.SetActive(false);
                 UINote.SetActive(false);
-                ActionDisplay.SetActive(true);
-                ActionText.SetActive(true);
+                //ActionDisplay.SetActive(true);
+                //ActionText.SetActive(true);
             }
         }
     }
 
     private void OnMouseOver()
     {
-        if (TheDistance <= 3)
-        {
-            ActionDisplay.SetActive(true);
-            ActionText.SetActive(true);
-        }
-
-        if (Input.GetKeyDown(KeyCode.E))
+        if (!readingNote)
         {
             if (TheDistance <= 3)
             {
-                ActionDisplay.SetActive(false);
-                ActionText.SetActive(false);
-                UINote.SetActive(true);
-                NoteCam.SetActive(true);
-                ThePlayer.SetActive(false);
+                rend.material = materials[1];
+
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                     ReadingNote();
+                }
             }
         }
     }
 
     private void OnMouseExit()
     {
-        ActionDisplay.SetActive(false);
-        ActionText.SetActive(false);
+        rend.material = materials[0];
+
+        //ActionDisplay.SetActive(false);
+        //ActionText.SetActive(false);
     }
 
+    private void ReadingNote()
+    {
+        rend.material = materials[0];
+        readingNote = true;
+
+        //ActionDisplay.SetActive(false);
+        //ActionText.SetActive(false);
+        UINote.SetActive(true);
+        NoteCam.SetActive(true);
+        ThePlayer.SetActive(false);
+    }
 }
