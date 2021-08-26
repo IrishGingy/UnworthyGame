@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Note01 : MonoBehaviour
 {
+    public Item item;
+
     public float TheDistance;
     public GameObject ActionDisplay;
     public GameObject ActionText;
@@ -48,6 +50,12 @@ public class Note01 : MonoBehaviour
                 ThePlayer.SetActive(true);
                 NoteCam.SetActive(false);
                 UINote.SetActive(false);
+
+                bool wasPickedUp = Inventory.instance.Add(item);
+                if (wasPickedUp)
+                {
+                    Destroy(note);
+                }
                 //ActionDisplay.SetActive(true);
                 //ActionText.SetActive(true);
             }
