@@ -444,7 +444,7 @@ Transform:
   - {fileID: 2130521779}
   - {fileID: 1092784207}
   - {fileID: 2125532026}
-  - {fileID: 560429821}
+  - {fileID: 1627547830}
   - {fileID: 2055124269}
   - {fileID: 1080250996}
   - {fileID: 1758678841}
@@ -1116,9 +1116,10 @@ GameObject:
   - component: {fileID: 560429824}
   - component: {fileID: 560429823}
   - component: {fileID: 560429822}
+  - component: {fileID: 560429826}
   m_Layer: 0
   m_Name: Hotel Door
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1131,11 +1132,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 560429820}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.72, y: -2.11, z: 16.59}
-  m_LocalScale: {x: 3, y: 5, z: 0.43}
+  m_LocalPosition: {x: 0.5, y: -0.07799988, z: -0.0046486077}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 215471604}
-  m_RootOrder: 13
+  m_Father: {fileID: 1627547830}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &560429822
 BoxCollider:
@@ -1199,6 +1200,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 560429820}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &560429826
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560429820}
+  serializedVersion: 2
+  m_Mass: 10
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &571539250
 GameObject:
   m_ObjectHideFlags: 0
@@ -1816,6 +1833,7 @@ GameObject:
   - component: {fileID: 717147135}
   - component: {fileID: 717147137}
   - component: {fileID: 717147136}
+  - component: {fileID: 717147138}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: Untagged
@@ -1947,6 +1965,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Mat: {fileID: 2100000, guid: 527ee287c5b66b448a21a9130fc86f87, type: 2}
+--- !u!114 &717147138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 717147131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a9619927fcfc4a49b506c8ce102f65d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactDistance: 5
 --- !u!1 &768475494
 GameObject:
   m_ObjectHideFlags: 0
@@ -5141,6 +5172,55 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1620863236}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1627547829
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1627547830}
+  - component: {fileID: 1627547831}
+  m_Layer: 0
+  m_Name: DoorPivot
+  m_TagString: Door
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1627547830
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1627547829}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -14.22, y: -1.7200003, z: 16.592}
+  m_LocalScale: {x: 3, y: 5, z: 0.43}
+  m_Children:
+  - {fileID: 560429821}
+  m_Father: {fileID: 215471604}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1627547831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1627547829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20a520fc703a9b644aeb7ca8e3b2c1d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  open: 0
+  doorOpenAngle: -90
+  doorCloseAngle: 0
+  smooth: 2
+  distance: 0
 --- !u!1 &1678280137
 GameObject:
   m_ObjectHideFlags: 0
