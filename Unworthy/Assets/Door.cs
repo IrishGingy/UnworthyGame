@@ -20,12 +20,12 @@ public class Door : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (open && !blocking)
+        if (open)
         {
             Quaternion targetRotationO = Quaternion.Euler(0, doorOpenAngle, 0);
             transform.localRotation = Quaternion.Slerp(transform.localRotation, targetRotationO, smooth * Time.deltaTime);
         }
-        if (!open && !blocking)
+        else
         {
             Quaternion targetRotationC = Quaternion.Euler(0, doorCloseAngle, 0);
             transform.localRotation = Quaternion.Slerp(transform.localRotation, targetRotationC, smooth * Time.deltaTime);
@@ -36,15 +36,5 @@ public class Door : MonoBehaviour
     {
         // Flips open bool
         open = !open;
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        blocking = true;
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        blocking = false;
     }
 }
